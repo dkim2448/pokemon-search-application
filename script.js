@@ -1,3 +1,4 @@
+// Declaring variables
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
 const pokeName = document.getElementById("pokemon-name");
@@ -13,19 +14,13 @@ const specialDefense = document.getElementById("special-defense");
 const speed = document.getElementById("speed");
 const sprite = document.getElementById("sprite");
 
-
+// Using async to fetch data from API
 async function fetchData(){
     try{
+        // testing if input is in the API
         const pokemonInput = searchInput.value.toLowerCase();
         const response = await fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonInput}`);
-
-        /* if(!response.ok){
-            // window.alert("Pokémon not found");
-            alert("Pokémon not found");
-        } */
-
         const data = await response.json();
-        console.log(data);
 
         // STATS ON TOP OF SCREEN
         pokeName.textContent = data.name.toUpperCase();
