@@ -1,0 +1,177 @@
+@media (prefers-reduced-motion: no-preference) {
+    * {
+      scroll-behavior: smooth;
+    }
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    text-align: center;
+    background-color: #1c1c30;
+    color: white;
+}
+
+#title {
+    margin-top: 40px;
+}
+
+.container {
+    padding: 10px;
+    width: 450px;
+    height: 650px;
+    margin: 50px auto;
+    background-color: #f5f6f7;
+    color: black;
+    border-radius: 20px;
+    box-shadow: 10px 5px #adacb1;
+}
+
+#search-title {
+    margin: 20px;
+}
+
+#search-input, #search-button {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+#search-input {
+    border: 1px solid tomato;
+}
+
+#search-button {
+    padding: 5px 10px;
+    background-color: tomato;
+    color: white;
+}
+
+#search-button:hover{
+    cursor: pointer;
+    background-color: red;
+    transition: 500ms;
+}
+
+#screen {
+    width: 350px;
+    height: 250px;
+    background-color: #f0f1f7;
+    margin: auto;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#name-container, #stat-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#name-container div, #stat-container div {
+    padding: 0 5px;
+}
+
+#sprite {
+    margin: auto;
+}
+
+#types {
+    display: flex;
+}
+
+#single-type {
+    padding: 6px 10px;
+    border-radius: 10px;
+    margin: 0 2px;
+}
+
+table {
+    margin: 30px auto;
+}
+
+td {
+    width: 150px;
+    text-align: center;
+    background-color: tomato;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* CREDITS TO DEREKTYPIST FOR COLORS */
+
+.normal {
+    background-color: #b7b7aa;
+}
+
+.fire {
+    background-color: #ff6f52; 
+}
+
+.water {
+    background-color: #42a1ff;
+}
+
+.electric {
+    background-color: #fecc33;
+}
+
+.grass {
+    background-color: #78cc55;
+}
+
+.ice {
+    background-color: #66ccfe;
+}
+
+.fighting {
+    background-color: #d3887e;
+}
+
+.poison {
+    background-color: #c68bb7;
+}
+
+.ground {
+    background-color: #dfba52;
+}
+
+.flying {
+    background-color: #8899ff;
+}
+
+.psychic {
+    background-color: #ff66a3;
+}
+
+.bug {
+    background-color: #aabb23;
+}
+
+.rock {
+    background-color: #baaa66;
+}
+
+.ghost {
+    background-color: #9995d0;
+}
+
+.dragon {
+    background-color: #b59682;
+}
+
+.steel {
+    background-color: #abaabb;
+}
+
+.fairy {
+    background-color: #ed99ed;
+}
