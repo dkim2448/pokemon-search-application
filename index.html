@@ -9,62 +9,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
     rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6fbdd9269e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
     <div class="container">
-
-        <p id="search-title">Name or ID:</p>
-        <input id="search-input" required>
-        <button id="search-button">Search</button>
-
-        <div id="screen">
-            <div id="about">
-                <div id="name-container">
-                    <div id="pokemon-name"></div>
-                    <div id="pokemon-id"></div>
-                </div>
-                <div id="stat-container">
-                    <div id="weight"></div>
-                    <div id="height"></div>
-                </div>
-            </div>
-            <div id="sprite-screen">
-                <img src="" id="sprite" style="display: hidden">
-            </div>
-            <div id="types"></div>
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Type Pokémon name" value="Infernape">
         </div>
-
-        <table>
-            <tr>
-                <th class="left-base">Base</th>
-                <th>Stats</th>
-            </tr>
-            <tr>
-                <td class="left-base">HP:</td>
-                <td id="hp"></td>
-            </tr>
-            <tr>
-                <td class="left-base">Attack:</td>
-                <td id="attack"></td>
-            </tr>
-            <tr>
-                <td class="left-base">Defense:</td>
-                <td id="defense"></td>
-            </tr>
-            <tr>
-                <td class="left-base">Sp. Attack:</td>
-                <td id="special-attack"></td>
-            </tr>
-            <tr>
-                <td class="left-base">Sp. Defense:</td>
-                <td id="special-defense"></td>
-            </tr>
-            <tr>
-                <td class="left-base">Speed:</td>
-                <td id="speed"></td>
-            </tr>
-        </table>
+        <div class="info-box">
+            <div class="color-box">
+                <div class="pokemon-id">#22</div>
+            </div>
+            <img src="" alt="">
+            <h3 class="pokemon-name">Infernape</h3>
+            <div class="pokemon-types"></div>
+            <div class="pokemon-stats"></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

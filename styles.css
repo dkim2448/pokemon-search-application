@@ -6,101 +6,150 @@
 
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: Poppins;
+    font-family: "Poppins";
 }
 
-body{
-    text-align: center;
-    background-color: #a4d9eb;
-    color: white;
+body {
+    background-color: #add8e6;
 }
 
 .container {
-    padding: 10px;
-    width: 450px;
-    height: 700px;
-    margin: 60px auto;
-    background-color: #f5f6f7;
-    color: black;
-    border-radius: 20px;
-    /* box-shadow: 10px 5px #adacb1; */
-}
-
-#search-title {
-    margin: 20px;
-}
-
-#search-input, #search-button {
-    margin-bottom: 20px;
-    font-size: 1rem;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-}
-
-#search-input {
-    border: 1px solid #86aaa2;
-}
-
-#search-button {
-    padding: 5px 10px;
-    background-color: #86aaa2;
-    color: white;
-}
-
-#search-button:hover{
-    cursor: pointer;
-    background-color: red;
-    transition: 500ms;
-}
-
-#screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
     width: 350px;
-    height: 250px;
-    background-color: #f0f1f7;
-    margin: auto;
-    padding: 5px;
+}
+
+.search-box {
+    height: 45px;
+    width: 100%;
+    background: white;
+    border-radius: 7px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
 }
 
-#name-container, #stat-container {
-    display: flex;
-    flex-direction: row;
+.search-box i {
+    color: grey;
+    font-size: 14px;
 }
 
-#name-container div, #stat-container div {
-    padding: 0 5px;
+.search-box input {
+    all: unset;
+    height: 45px;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 14px;
 }
 
-#sprite {
-    margin: auto;
+.info-box {
+    background-color: white;
+    margin-top: 5px;
+    border-radius: 7px;
+    overflow: hidden;
+    padding: 10px;
 }
 
-#types {
-    display: flex;
-    color: white;
+.color-box {
+    height: 330px;
+    width: 330px;
+    border-radius: 100%;
+    background: orange;
+    margin-top: -180px;
+    margin-left: -25px;
 }
 
-#single-type {
-    padding: 6px 10px;
-    border-radius: 10px;
-    margin: 0 2px;
-}
-
-table {
-    margin: 30px auto;
-}
-
-td {
+.info-box img {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -40px;
+    height: 150px;
     width: 150px;
+}
+
+.pokemon-id {
+    padding: 4px;
+    width: 60px;
+    position: absolute;
+    top: 85px;
+    right: 35px;
+    color: black;
+    background-color: white;
     text-align: center;
-    background-color: #86aaa2;
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+.pokemon-name {
+    text-align: center;
+    margin-top: 55px;
+    font-weight: 600;
+    font-size: 25px;
+    text-transform: capitalize;
+}
+
+.pokemon-types{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 17px;
+    height: 40px;
+}
+
+.types-style {
+    padding: 5px 13px 5px 13px;
+    border-radius: 30px;
+    width: 200px;
+    text-align: center;
     color: white;
-    border-radius: 5px;
-    padding: 5px;
+    margin-left: 25px;
+    position: relative;
+    top: 10px;
+    left: -15px;
+    font-size: 14px;
+}
+
+.pokemon-stats {
+    height: 150px;
+    margin-top: 50px;
+}
+
+.stat-elem {
+    height: 65px;
+    width: 70px;
+    margin-left: 25px;
+    margin-top: 0;
+    float: left;
+    position: relative;
+    left: -15px;
+    display: flex;
+    justify-content: center;
+}
+
+.stat-name {
+    margin-top: 35px;
+    color: grey;
+    font-size: 14px;
+}
+
+.stat-value {
+    position: absolute;
+    margin-top: 10px;
+    white-space: nowrap;
+    font-size: 17px;
+    font-weight: 600;;
+}
+
+.stat-elem:nth-child(4) .stat-name, 
+.stat-elem:nth-child(5) .stat-name {
+    font-size: 12px;
+    text-align: center;
 }
 
 /* CREDITS TO DEREKTYPIST FOR COLORS */

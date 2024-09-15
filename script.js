@@ -1,78 +1,74 @@
-// Declaring variables
-const searchInput = document.getElementById("search-input");
-const searchButton = document.getElementById("search-button");
-const pokeName = document.getElementById("pokemon-name");
-const id = document.getElementById("pokemon-id");
-const weight = document.getElementById("weight");
-const height = document.getElementById("height");
-const types = document.getElementById("types");
-const hp = document.getElementById("hp");
-const attack = document.getElementById("attack");
-const defense = document.getElementById("defense");
-const specialAttack = document.getElementById("special-attack");
-const specialDefense = document.getElementById("special-defense");
-const speed = document.getElementById("speed");
-const sprite = document.getElementById("sprite");
+// Declaration of variables
+let input = document.querySelector(".search-box input");
+let pokemonImg = document.querySelector(".info-box img");
+let pokemonName = document.querySelector(".pokemon-name");
+let pokemonId = document.querySelector(".pokemon-id");
+let pokeTypeBox = document.querySelector(".pokemon-types");
+let colorBox = document.querySelector(".color-box");
+let pokeStatsBox = document.querySelector(".pokemon-stats");
 
-// Using async to fetch data from API
-async function fetchData(){
-    try{
-        // testing if input is in the API
-        const pokemonInput = searchInput.value.toLowerCase();
-        const response = await fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonInput}`);
-        const data = await response.json();
-
-        // STATS ON TOP OF SCREEN
-        pokeName.textContent = data.name.toUpperCase();
-        id.textContent = `#${data.id}`;
-        weight.textContent = `Weight: ${data.weight}`;
-        height.textContent = ` Height: ${data.height}`;
-
-        // IMAGE
-        const pokemonSprite = data.sprites.front_default;
-        sprite.src = pokemonSprite;
-        sprite.style.display = "block";
-
-        // TYPE BLOCKS
-        types.innerHTML = data.types.map((arr) => `<div id="single-type" class="${arr.type.name}">${arr.type.name}</div>`).join("");
-
-        // BASE STATS TABLE
-        hp.textContent = data.stats[0].base_stat;
-        attack.textContent = data.stats[1].base_stat;
-        defense.textContent = data.stats[2].base_stat;
-        specialAttack.textContent = data.stats[3].base_stat;
-        specialDefense.textContent = data.stats[4].base_stat;
-        speed.textContent = data.stats[5].base_stat;
-
-    }
-    catch{
-        // console.error(error);
-        alert("Pokémon not found");
-        reset();
-    }
+// Using async and await for asynchronous code
+const getPokemon = pokemon => {
+    let url = `https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`;
+    fetch(url).then(res => res.json()).then(data => {renderPokemon(data)})
+    .catch(() => alert("Pokémon not found"));
 }
 
-// Resets Pokemon Information
-const reset = () => {
-    pokeName.textContent = ""
-    id.textContent = "";
-    weight.textContent = "";
-    height.textContent = "";
-    sprite.src = "";
-    hp.textContent = "";
-    attack.textContent = "";
-    defense.textContent = "";
-    specialAttack.textContent = "";
-    specialDefense.textContent = "";
-    speed.textContent = "";
-    types.innerHTML = "";
-    searchInput.value = "";
+// Rendering pokemon data from API
+let renderPokemon = data => {
+    const sprite = data.sprites.other.dream_world.front_default;
+    const name = data.name;
+    const pokeId = data.id;
+    const themeColor = data.types[0].type.name;
+    pokemonImg.src = sprite;
+    pokemonName.innerHTML = name;
+    pokemonId.innerHTML = "#" + pokeId;
+    getPokemonTypes(data.types);
+    styleCard(themeColor);
+    getPokemonStats(data.stats);
 }
 
-searchButton.addEventListener("click", fetchData);
+// Adding pokemon type from API
+let getPokemonTypes = types => {
+    pokeTypeBox.innerHTML = types.map((arr) => `<span class="${arr.type.name} types-style">${arr.type.name}</span>`).join("");
+}
 
-searchInput.addEventListener("keydown", event => {
-    if(event.key === "Enter"){
-        fetchData();
+// Changing color of background and type boxes
+let styleCard = color => {
+    colorBox.className = "color-box";
+    colorBox.classList.add(color); 
+}
+
+// Creating div and spans for pokemon information
+let getPokemonStats = stats => {
+    pokeStatsBox.innerHTML = "";
+    stats.forEach(pokeStats => {
+        let statElem = document.createElement("div");   // creating div to put into pokemon stat div
+        let statElemName = document.createElement("span");  // create span to put into statElem
+        let statElemValue = document.createElement("span"); // create span to put into statElem
+        statElemName.innerHTML = pokeStats.stat.name;
+        statElemValue.innerHTML = pokeStats.base_stat;
+
+        // appending name and value to statElem
+        statElem.appendChild(statElemName);
+        statElem.appendChild(statElemValue);
+
+        statElem.classList.add("stat-elem");
+        statElemName.classList.add("stat-name");
+        statElemValue.classList.add("stat-value");
+
+        // adding statElem to pokeStatsBox div
+        pokeStatsBox.appendChild(statElem);
+
+    })
+}
+
+// For input
+input.addEventListener("keyup", e => {
+    if(e.key === "Enter"){
+        getPokemon(input.value);
     }
-});
+})
+
+// defaults pokemon to Infernape
+getPokemon(input.value);
