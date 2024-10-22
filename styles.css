@@ -36,7 +36,11 @@ body {
 
 .search-box i {
     color: grey;
-    font-size: 14px;
+    font-size: 15px;
+}
+
+.search-box i:hover {
+    cursor: pointer;
 }
 
 .search-box input {
